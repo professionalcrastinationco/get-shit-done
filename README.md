@@ -1,8 +1,6 @@
-# Get Shit Done
+# Get Shit Done (LITE)
 
-**A meta-prompting, context engineering and spec-driven development system for Claude Code by TÂCHES.**
-
-![GSD Install](assets/terminal.svg)
+**A meta-prompting, context engineering and spec-driven development system for Claude Code originally by TÂCHES.**
 
 Vibecoding has a bad reputation. You describe what you want, AI generates code, and you get inconsistent garbage that falls apart at scale.
 
@@ -14,17 +12,6 @@ _Warning: Not for people who enjoy inconsistent and sloppy results._
 
 ---
 
-## Installation
-
-```bash
-npx get-shit-done-cc
-```
-
-That's it. Works on Mac, Windows, and Linux.
-
-Verify: `/gsd:help`
-
----
 
 ## Why I Built This
 
@@ -248,3 +235,4 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
 **Claude Code is powerful. GSD gives it the context and the systematic consistency to prove it.**
+
