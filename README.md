@@ -1,35 +1,38 @@
 # Get Shit Done (LITE)
 
-**A meta-prompting, context engineering and spec-driven development system for Claude Code originally by TÂCHES.**
-
-Vibecoding has a bad reputation. You describe what you want, AI generates code, and you get inconsistent garbage that falls apart at scale.
-
-GSD fixes that. It's the context engineering layer that makes Claude Code reliable. Describe your idea, let the system extract everything it needs to know, and then let Claude Code get to work.
+**A meta-prompting, context engineering and spec-driven development system for Claude Code [originally by TÂCHES](https://github.com/glittercowboy/get-shit-done) **
 
 THIS is how you vibecode and actually get shit done.
 
-_Warning: Not for people who enjoy inconsistent and sloppy results._
+---
+
+# What Makes Get Shit Done Lite (GSDL) Different
+
+1. As the original GSD matured, it got more and more full featured, and outgrew the smaller sized projects we work on. So we forked an earlier version (v1.3.9) that fit the project sizes we typically work on. 
+2. Then, we optimized the code to reduce token usage as much as possible without negatively effecting performance (more on this below)
+3. Finally, we added an auto frontend review step using Playwright MCP (you need to have it installed beforehand) so that Claude Code can do a full test before reporting that the phase/milestone/whatever is complete
+
+## Token Efficiency Updates
+
+We optimized default context loading to reduce token usage without removing guidance.
+
+What changed:
+
+- Split heavy references into "core" versions used by default.
+- Keep full reference docs available for examples and deeper guidance.
+- Load provider-specific automation docs only when a phase needs them.
+- Require Playwright verification for user-visible UI changes (baked into planning and execution).
+
+Estimated impact (default command context only, excluding project files):
+
+- `/gsd:plan-phase`: ~15.9k tokens -> ~11.1k tokens (~30% reduction).
+- `/gsd:execute-plan`: ~10.8k tokens -> ~8.5k tokens (~22% reduction).
+
+Quality is preserved because the full references are still available and loaded when needed.
 
 ---
 
-
-## Why I Built This
-
-I'm a solo developer. I don't write code — Claude Code does.
-
-Other spec-driven development tools exist; BMAD, Speckit... But they all seem to make things way more complicated than they need to be (sprint ceremonies, story points, stakeholder syncs, retrospectives, Jira workflows) or lack real big picture understanding of what you're building. I'm not a 50-person software company. I don't want to play enterprise theater. I'm just a creative person trying to build great things that work.
-
-So I built GSD. The complexity is in the system, not in your workflow. Behind the scenes: context engineering, XML prompt formatting, subagent orchestration, state management. What you see: a few commands that just work.
-
-I wanted to spend my time having ideas and seeing them through to implementation — not babysitting Claude. Now I can say "go," put it in YOLO mode, and go to the beach. The system gives Claude everything it needs to do the work _and_ verify it. I trust the workflow. It just does a good job.
-
-That's what this is. No enterprise roleplay bullshit. Just an incredibly effective system for building cool stuff consistently using Claude Code.
-
-— TÂCHES
-
----
-
-## How It Works
+## How It Works (QUICKSTART)
 
 ### 1. Start with an idea
 
@@ -37,18 +40,11 @@ That's what this is. No enterprise roleplay bullshit. Just an incredibly effecti
 /gsd:new-project
 ```
 
-The system asks questions. Keeps asking until it has everything — your goals, constraints, tech preferences, edge cases. You go back and forth until the idea is fully captured. Creates **PROJECT.md**.
-
 ### 2. Create roadmap
 
 ```
-/gsd:create-roadmap     # Create phases and state tracking
+/gsd:create-roadmap
 ```
-
-Roadmap creation produces:
-
-- **ROADMAP.md** - Phases from start to finish
-- **STATE.md** - Living memory that persists across sessions
 
 ### 3. Plan and execute phases
 
@@ -56,8 +52,6 @@ Roadmap creation produces:
 /gsd:plan-phase 1      # System creates atomic task plans
 /gsd:execute-plan      # Subagent implements autonomously
 ```
-
-Each phase breaks into 2-3 atomic tasks. Each task runs in a fresh subagent context — 200k tokens purely for implementation, zero degradation.
 
 ### 4. Ship and iterate
 
@@ -67,7 +61,7 @@ Each phase breaks into 2-3 atomic tasks. Each task runs in a fresh subagent cont
 /gsd:insert-phase 2       # Slip urgent work between phases
 ```
 
-Ship your MVP in a day. Add features. Insert hotfixes. The system stays modular — you're never stuck.
+
 
 ---
 
@@ -235,4 +229,5 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
 **Claude Code is powerful. GSD gives it the context and the systematic consistency to prove it.**
+
 
