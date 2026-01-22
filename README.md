@@ -1,16 +1,94 @@
-# Get Shit Done (LITE)
+ ██████╗ ███████╗████████╗    ███████╗██╗  ██╗██╗████████╗    ██████╗  ██████╗ ███╗   ██╗███████╗              ██╗     ██╗████████╗███████╗
+██╔════╝ ██╔════╝╚══██╔══╝    ██╔════╝██║  ██║██║╚══██╔══╝    ██╔══██╗██╔═══██╗████╗  ██║██╔════╝              ██║     ██║╚══██╔══╝██╔════╝
+██║  ███╗█████╗     ██║       ███████╗███████║██║   ██║       ██║  ██║██║   ██║██╔██╗ ██║█████╗      █████╗    ██║     ██║   ██║   █████╗  
+██║   ██║██╔══╝     ██║       ╚════██║██╔══██║██║   ██║       ██║  ██║██║   ██║██║╚██╗██║██╔══╝      ╚════╝    ██║     ██║   ██║   ██╔══╝  
+╚██████╔╝███████╗   ██║       ███████║██║  ██║██║   ██║       ██████╔╝╚██████╔╝██║ ╚████║███████╗              ███████╗██║   ██║   ███████╗
+ ╚═════╝ ╚══════╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝       ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝              ╚══════╝╚═╝   ╚═╝   ╚══════╝
+                                                                                                                                           
 
-**A meta-prompting, context engineering and spec-driven development system for Claude Code [originally by TÂCHES](https://github.com/glittercowboy/get-shit-done) **
+# Get Shit Done (Lite)
+
+**A meta-prompting, context engineering, and spec-driven development system for Claude Code, originally by [TACHES](https://github.com/glittercowboy/get-shit-done).**
 
 THIS is how you vibecode and actually get shit done.
 
 ---
 
-# What Makes Get Shit Done Lite (GSDL) Different
+## What Makes Get Shit Done Lite (GSDL) Different
 
-1. As the original GSD matured, it got more and more full featured, and outgrew the smaller sized projects we work on. So we forked an earlier version (v1.3.9) that fit the project sizes we typically work on. 
-2. Then, we optimized the code to reduce token usage as much as possible without negatively effecting performance (more on this below)
-3. Finally, we added an auto frontend review step using Playwright MCP (you need to have it installed beforehand) so that Claude Code can do a full test before reporting that the phase/milestone/whatever is complete
+GSDL is a lean fork of GSD that stays fast for smaller projects.
+
+1. We forked GSD v1.3.9 before the system grew heavy for our typical project sizes.
+2. We optimized token usage without degrading output quality.
+3. We added an automated frontend review step using Playwright MCP (install required).
+
+---
+
+## Quick Start (New Projects)
+
+### 1) Start with an idea
+
+```
+/gsd:new-project
+```
+
+### 2) Create a roadmap
+
+```
+/gsd:create-roadmap
+```
+
+### 3) Plan phases
+
+```
+/gsd:plan-phase 1
+```
+
+### 4) Execute phases
+
+```
+/gsd:execute-plan
+```
+
+### 5) Add phases
+
+```
+/gsd:add-phase
+```
+
+### 6) Complete milestones
+
+```
+/gsd:complete-milestone
+```
+
+---
+
+## Quick Start (Existing Projects)
+
+Already have code? Start here.
+
+### 1) Map the codebase
+
+```
+/gsd:map-codebase
+```
+
+### 2) Initialize the project
+
+```
+/gsd:new-project
+```
+
+### 3) Continue as normal
+
+```
+/gsd:create-roadmap -> /gsd:plan-phase -> /gsd:execute-plan
+```
+
+The codebase docs load automatically during planning, so Claude follows your patterns.
+
+---
 
 ## Token Efficiency Updates
 
@@ -19,80 +97,16 @@ We optimized default context loading to reduce token usage without removing guid
 What changed:
 
 - Split heavy references into "core" versions used by default.
-- Keep full reference docs available for examples and deeper guidance.
+- Keep full reference docs available for examples and deep guidance.
 - Load provider-specific automation docs only when a phase needs them.
-- Require Playwright verification for user-visible UI changes (baked into planning and execution).
+- Require Playwright verification for user-visible UI changes.
 
 Estimated impact (default command context only, excluding project files):
 
-- `/gsd:plan-phase`: ~15.9k tokens -> ~11.1k tokens (~30% reduction).
-- `/gsd:execute-plan`: ~10.8k tokens -> ~8.5k tokens (~22% reduction).
+- `/gsd:plan-phase`: ~15.9k tokens -> ~11.1k tokens (about 30% reduction)
+- `/gsd:execute-plan`: ~10.8k tokens -> ~8.5k tokens (about 22% reduction)
 
-Quality is preserved because the full references are still available and loaded when needed.
-
----
-
-## How It Works - NEW PROJECTS (QUICKSTART)
-
-### 1. Start with an idea
-
-```
-/gsd:new-project
-```
-
-### 2. Create roadmap
-
-```
-/gsd:create-roadmap
-```
-
-### 3. Plan phases
-
-```
-/gsd:plan-phase 1
-```
-
-### 4. Execute phases
-
-```
-/gsd:execute-plan 
-```
-
-### 5. Add phases
-
-```
-/gsd:add-phase
-```
-
-### 5. Complete Milestones
-
-```
-/gsd:complete-milestone 
-```
-
-
-## How It Works - EXISTING PROJECTS (QUICKSTART)
-
-Already have code? Start here instead.
-
-### 1. Map the codebase
-
-```
-/gsd:map-codebase
-```
-
-### 2. Initialize project
-
-```
-/gsd:new-project
-```
-
-
-### 3. Continue as normal
-
-From here, it's the same: `/gsd:create-roadmap` → `/gsd:plan-phase` → `/gsd:execute-plan`
-
-The codebase docs load automatically during planning. Claude knows your patterns, conventions, and where to put things.
+Quality is preserved because full references are still available and loaded when needed.
 
 ---
 
@@ -100,24 +114,20 @@ The codebase docs load automatically during planning. Claude knows your patterns
 
 ### Context Engineering
 
-Claude Code is incredibly powerful _if_ you give it the context it needs. Most people don't.
+Claude Code is incredibly powerful if you give it the context it needs. GSDL does that for you:
 
-GSD handles it for you:
-
-| File         | What it does                                           |
-| ------------ | ------------------------------------------------------ |
-| `PROJECT.md` | Project vision, always loaded                          |
-| `ROADMAP.md` | Where you're going, what's done                        |
-| `STATE.md`   | Decisions, blockers, position — memory across sessions |
-| `PLAN.md`    | Atomic task with XML structure, verification steps     |
-| `SUMMARY.md` | What happened, what changed, committed to history      |
-| `ISSUES.md`  | Deferred enhancements tracked across sessions          |
-
-Size limits based on where Claude's quality degrades. Stay under, get consistent excellence.
+| File         | What it does                                      |
+| ------------ | ------------------------------------------------- |
+| `PROJECT.md` | Project vision, always loaded                     |
+| `ROADMAP.md` | Where you are going, what is done                 |
+| `STATE.md`   | Decisions, blockers, memory across sessions       |
+| `PLAN.md`    | Atomic tasks with XML structure and verification  |
+| `SUMMARY.md` | What happened, what changed, committed to history |
+| `ISSUES.md`  | Deferred enhancements tracked across sessions     |
 
 ### XML Prompt Formatting
 
-Every plan is structured XML optimized for Claude:
+Plans are structured XML optimized for Claude:
 
 ```xml
 <task type="auto">
@@ -133,13 +143,9 @@ Every plan is structured XML optimized for Claude:
 </task>
 ```
 
-Precise instructions. No guessing. Verification built in.
-
 ### Subagent Execution
 
-As Claude fills its context window, quality degrades. You've seen it: "Due to context limits, I'll be more concise now." That "concision" is code for cutting corners.
-
-GSD prevents this. Each plan is maximum 3 tasks. Each plan runs in a fresh subagent — 200k tokens purely for implementation, zero accumulated garbage.
+As context grows, quality drops. GSDL prevents this by keeping each plan to a maximum of three tasks and running each task in a fresh subagent:
 
 - Task 1: fresh context, full quality
 - Task 2: fresh context, full quality
@@ -149,61 +155,41 @@ No degradation. Walk away, come back to completed work.
 
 ### Clean Git History
 
-Every task: atomic commit, clear message, summary documenting outcomes. Maintainable history you can trace.
+Each task is an atomic commit with a clear message and summary, so you can trace exactly what changed.
 
 ### Modular by Design
 
-- Add phases to current milestone
+- Add phases to a milestone
 - Insert urgent work between phases
 - Complete milestones and start fresh
 - Adjust plans without rebuilding everything
 
-You're never locked in. The system adapts.
-
----
-
-## Token Efficiency Updates
-
-We optimized default context loading to reduce token usage without removing guidance.
-
-What changed:
-
-- Split heavy references into "core" versions used by default.
-- Keep full reference docs available for examples and deeper guidance.
-- Load provider-specific automation docs only when a phase needs them.
-- Require Playwright verification for user-visible UI changes (baked into planning and execution).
-
-Estimated impact (default command context only, excluding project files):
-
-- `/gsd:plan-phase`: ~15.9k tokens -> ~11.1k tokens (~30% reduction).
-- `/gsd:execute-plan`: ~10.8k tokens -> ~8.5k tokens (~22% reduction).
-
-Quality is preserved because the full references are still available and loaded when needed.
+You are never locked in. The system adapts.
 
 ---
 
 ## Commands
 
-| Command                           | What it does                                                  |
-| --------------------------------- | ------------------------------------------------------------- |
-| `/gsd:new-project`                | Extract your idea through questions, create PROJECT.md        |
-| `/gsd:create-roadmap`             | Create roadmap and state tracking                             |
-| `/gsd:map-codebase`               | Map existing codebase for brownfield projects                 |
-| `/gsd:plan-phase [N]`             | Generate task plans for phase                                 |
-| `/gsd:execute-plan`               | Run plan via subagent                                         |
-| `/gsd:progress`                   | Where am I? What's next?                                      |
-| `/gsd:complete-milestone`         | Ship it, prep next version                                    |
-| `/gsd:discuss-milestone`          | Gather context for next milestone                             |
-| `/gsd:new-milestone [name]`       | Create new milestone with phases                              |
-| `/gsd:add-phase`                  | Append phase to roadmap                                       |
-| `/gsd:insert-phase [N]`           | Insert urgent work                                            |
-| `/gsd:discuss-phase [N]`          | Gather context before planning                                |
-| `/gsd:research-phase [N]`         | Deep ecosystem research for niche domains                     |
-| `/gsd:list-phase-assumptions [N]` | See what Claude thinks before you correct it                  |
-| `/gsd:pause-work`                 | Create handoff file when stopping mid-phase                   |
-| `/gsd:resume-work`                | Restore from last session                                     |
-| `/gsd:consider-issues`            | Review deferred issues, close resolved, identify urgent       |
-| `/gsd:help`                       | Show all commands and usage guide                             |
+| Command                           | What it does                                            |
+| --------------------------------- | ------------------------------------------------------- |
+| `/gsd:new-project`                | Extract your idea through questions, create PROJECT.md  |
+| `/gsd:create-roadmap`             | Create roadmap and state tracking                       |
+| `/gsd:map-codebase`               | Map existing codebase for brownfield projects           |
+| `/gsd:plan-phase [N]`             | Generate task plans for a phase                         |
+| `/gsd:execute-plan`               | Run plan via subagent                                   |
+| `/gsd:progress`                   | Where am I? What is next?                               |
+| `/gsd:complete-milestone`         | Ship it, prep next version                              |
+| `/gsd:discuss-milestone`          | Gather context for next milestone                       |
+| `/gsd:new-milestone [name]`       | Create new milestone with phases                        |
+| `/gsd:add-phase`                  | Append a phase to the roadmap                           |
+| `/gsd:insert-phase [N]`           | Insert urgent work                                      |
+| `/gsd:discuss-phase [N]`          | Gather context before planning                          |
+| `/gsd:research-phase [N]`         | Deep ecosystem research for niche domains               |
+| `/gsd:list-phase-assumptions [N]` | See what Claude thinks before you correct it            |
+| `/gsd:pause-work`                 | Create a handoff file when stopping mid-phase           |
+| `/gsd:resume-work`                | Restore from the last session                           |
+| `/gsd:consider-issues`            | Review deferred issues, close resolved, identify urgent |
+| `/gsd:help`                       | Show all commands and usage guide                       |
 
 ---
 
@@ -223,7 +209,4 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-**Claude Code is powerful. GSD gives it the context and the systematic consistency to prove it.**
-
-
-
+**Claude Code is powerful. GSDL gives it the context and the systematic consistency to prove it.**
