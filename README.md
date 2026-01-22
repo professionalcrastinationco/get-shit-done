@@ -8,7 +8,7 @@ THIS is how you vibecode and actually get shit done.
 
 ---
 
-## What Makes Get Shit Done Lite (GSDL) Different
+## ✨ What Makes Get Shit Done Lite (GSDL) Different
 
 GSDL is a lean fork of GSD that stays fast for smaller projects.
 
@@ -18,7 +18,7 @@ GSDL is a lean fork of GSD that stays fast for smaller projects.
 
 ---
 
-## Quick Start (New Projects)
+## 🚀 Quick Start (New Projects)
 
 ### 1) Start with an idea
 
@@ -58,7 +58,7 @@ GSDL is a lean fork of GSD that stays fast for smaller projects.
 
 ---
 
-## Quick Start (Existing Projects)
+## 🧭 Quick Start (Existing Projects)
 
 Already have code? Start here.
 
@@ -84,7 +84,7 @@ The codebase docs load automatically during planning, so Claude follows your pat
 
 ---
 
-## Token Efficiency Updates
+## ⚡ Token Efficiency Updates
 
 We optimized default context loading to reduce token usage without removing guidance.
 
@@ -104,9 +104,9 @@ Quality is preserved because full references are still available and loaded when
 
 ---
 
-## Why It Works
+## 🧠 Why It Works
 
-### Context Engineering
+### 🧩 Context Engineering
 
 Claude Code is incredibly powerful if you give it the context it needs. GSDL does that for you:
 
@@ -119,7 +119,7 @@ Claude Code is incredibly powerful if you give it the context it needs. GSDL doe
 | `SUMMARY.md` | What happened, what changed, committed to history |
 | `ISSUES.md`  | Deferred enhancements tracked across sessions     |
 
-### XML Prompt Formatting
+### 🧱 XML Prompt Formatting
 
 Plans are structured XML optimized for Claude:
 
@@ -137,7 +137,7 @@ Plans are structured XML optimized for Claude:
 </task>
 ```
 
-### Subagent Execution
+### 🛰️ Subagent Execution
 
 As context grows, quality drops. GSDL prevents this by keeping each plan to a maximum of three tasks and running each task in a fresh subagent:
 
@@ -147,11 +147,11 @@ As context grows, quality drops. GSDL prevents this by keeping each plan to a ma
 
 No degradation. Walk away, come back to completed work.
 
-### Clean Git History
+### 🧾 Clean Git History
 
 Each task is an atomic commit with a clear message and summary, so you can trace exactly what changed.
 
-### Modular by Design
+### 🧰 Modular by Design
 
 - Add phases to a milestone
 - Insert urgent work between phases
@@ -162,7 +162,7 @@ You are never locked in. The system adapts.
 
 ---
 
-## Commands
+## 🧪 Commands
 
 | Command                           | What it does                                            |
 | --------------------------------- | ------------------------------------------------------- |
@@ -187,7 +187,7 @@ You are never locked in. The system adapts.
 
 ---
 
-## Who This Is For
+## 👥 Who This Is For
 
 People who want to vibecode and have it actually work.
 
@@ -197,13 +197,10 @@ Not for people who enjoy inconsistent and sloppy results.
 
 ---
 
-## License
+## 📄 License
 
 MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
 **Claude Code is powerful. GSDL gives it the context and the systematic consistency to prove it.**
-
-
-
