@@ -32,7 +32,7 @@ Quality is preserved because the full references are still available and loaded 
 
 ---
 
-## How It Works (QUICKSTART)
+## How It Works - NEW PROJECTS (QUICKSTART)
 
 ### 1. Start with an idea
 
@@ -46,26 +46,32 @@ Quality is preserved because the full references are still available and loaded 
 /gsd:create-roadmap
 ```
 
-### 3. Plan and execute phases
+### 3. Plan phases
 
 ```
-/gsd:plan-phase 1      # System creates atomic task plans
-/gsd:execute-plan      # Subagent implements autonomously
+/gsd:plan-phase 1
 ```
 
-### 4. Ship and iterate
+### 4. Execute phases
 
 ```
-/gsd:complete-milestone   # Archive v1, prep for v2
-/gsd:add-phase            # Append new work
-/gsd:insert-phase 2       # Slip urgent work between phases
+/gsd:execute-plan 
+```
+
+### 5. Add phases
+
+```
+/gsd:add-phase
+```
+
+### 5. Complete Milestones
+
+```
+/gsd:complete-milestone 
 ```
 
 
-
----
-
-## Existing Projects (Brownfield)
+## How It Works - EXISTING PROJECTS (QUICKSTART)
 
 Already have code? Start here instead.
 
@@ -75,23 +81,12 @@ Already have code? Start here instead.
 /gsd:map-codebase
 ```
 
-Spawns parallel agents to analyze your code. Creates `.planning/codebase/` with 7 documents:
-
-- **STACK.md** — Languages, frameworks, dependencies
-- **ARCHITECTURE.md** — Patterns, layers, data flow
-- **STRUCTURE.md** — Directory layout, where things live
-- **CONVENTIONS.md** — Code style, naming patterns
-- **TESTING.md** — Test framework, patterns
-- **INTEGRATIONS.md** — External services, APIs
-- **CONCERNS.md** — Tech debt, known issues, fragile areas
-
 ### 2. Initialize project
 
 ```
 /gsd:new-project
 ```
 
-Same as greenfield, but the system knows your codebase. Questions focus on what you're adding/changing, not starting from scratch.
 
 ### 3. Continue as normal
 
@@ -229,5 +224,6 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
 **Claude Code is powerful. GSD gives it the context and the systematic consistency to prove it.**
+
 
 
