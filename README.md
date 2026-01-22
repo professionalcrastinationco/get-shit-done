@@ -1,4 +1,4 @@
-![GSD Lite][assets/gsdl-logo.png ]
+[logo]: assets/gsdl-logo.png "Logo Title Text 2"
 
 # Get Shit Done (Lite)
 
@@ -204,4 +204,5 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
 **Claude Code is powerful. GSDL gives it the context and the systematic consistency to prove it.**
+
 
